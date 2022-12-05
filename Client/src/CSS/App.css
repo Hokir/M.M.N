@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --dark: #001219;
+  --light: #c6ac8f;
+}
+
+body {
+  color: var(--dark);
+  background-color: var(--light);
+}
+
+.btn {
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 6px 16px;
+}
+
+.btn:hover {
+  background-color: #767d66;
+}
