@@ -1,4 +1,4 @@
-import { useShopContext } from "@Setup/Contexts/ShopContext";
+import { useShopContext } from "@Common/Contexts/ShopContext";
 
 export function StoreItems({ id, name, price }) {
   const { increaseItemQuantity } = useShopContext();

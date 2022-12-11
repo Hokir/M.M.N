@@ -1,4 +1,4 @@
-import { useShopContext } from "@Setup/Contexts/ShopContext";
+import { useShopContext } from "@Common/Contexts/ShopContext";
 import { CurrencyFormat } from "../../Hooks/CurrencyFormatter";
 
 export function CartItems({ id, quantity }) {

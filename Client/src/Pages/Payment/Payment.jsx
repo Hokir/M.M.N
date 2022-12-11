@@ -1,8 +1,8 @@
 import { CartItems } from "./Components/CartItems";
 import { ClickAndCollect } from "./Components/ClickAndCollectPage";
 
-import { useShopContext } from "@Setup/Contexts/ShopContext";
-import { useUserContext } from "@Setup/Contexts/UserContext";
+import { useShopContext } from "@Common/Contexts/ShopContext";
+import { useUserContext } from "@Common/Contexts/UserContext";
 
 import { CurrencyFormat } from "./Hooks/CurrencyFormatter";
 

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useUserContext } from "@Setup/Contexts/UserContext";
+import { useUserContext } from "@Common/Contexts/UserContext";
 
 export function DisconnectButton() {
   const { user, setUser } = useUserContext();

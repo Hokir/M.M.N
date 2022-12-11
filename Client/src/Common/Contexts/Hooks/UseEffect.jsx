@@ -1,5 +1,5 @@
-import Items from "../Models/ItemsModel";
-import { post } from "@Setup/API/Axios";
+import Items from "@Assets/Models/ItemsModel";
+import { post } from "@Common/API/Axios";
 import { useEffect, useState } from "react";
 
 export function ShopContextEffect() {

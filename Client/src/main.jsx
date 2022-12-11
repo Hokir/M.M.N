@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { Router } from "./Setup/Routes/Router";
+import { Router } from "@Common/Routes/Router";
 
 // Contexts
 
-import { UserContext } from "@Setup/Contexts/UserContext";
-import { ShopContext } from "@Setup/Contexts/ShopContext";
+import { UserContext } from "@Common/Contexts/UserContext";
+import { ShopContext } from "@Common/Contexts/ShopContext";
 
 import App from "./App";
 

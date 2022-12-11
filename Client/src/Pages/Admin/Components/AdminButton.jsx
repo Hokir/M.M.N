@@ -1,5 +1,5 @@
-import { useShopContext } from "@Setup/Contexts/ShopContext";
-import { useUserContext } from "@Setup/Contexts/UserContext";
+import { useShopContext } from "@Common/Contexts/ShopContext";
+import { useUserContext } from "@Common/Contexts/UserContext";
 
 export function AdminButton() {
   const { user } = useUserContext();

@@ -1,4 +1,4 @@
-import { useShopContext } from "@Setup/Contexts/ShopContext";
+import { useShopContext } from "@Common/Contexts/ShopContext";
 import { CurrencyFormat } from "../../Hooks/CurrencyFormatter";
 import { Link } from "react-router-dom";
 import { CartItems } from "./CartItems";

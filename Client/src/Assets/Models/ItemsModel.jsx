@@ -1,4 +1,4 @@
-import { get, post } from "@Setup/API/Axios";
+import { get, post } from "@Common/API/Axios";
 
 class Items {
   static async createItem(name, price, category) {

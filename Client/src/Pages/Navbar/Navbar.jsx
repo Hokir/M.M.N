@@ -2,7 +2,7 @@ import "@Assets/Styles/App.css";
 import { Link } from "react-router-dom";
 
 import { DisconnectButton } from "./Components/DisconnectButton";
-import { useUserContext } from "@Setup/Contexts/UserContext";
+import { useUserContext } from "@Common/Contexts/UserContext";
 import { ProfilImage } from "@Assets/SVG/Profil.jsx";
 
 export function Navbar() {

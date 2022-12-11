@@ -1,4 +1,4 @@
-import { post } from "../../Setup/API/Axios";
+import { post } from "@Common/API/Axios";
 
 class Users {
   constructor(name, surname, email, password, role) {

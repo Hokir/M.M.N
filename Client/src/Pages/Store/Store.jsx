@@ -2,8 +2,8 @@ import { AdminPanel } from "@Pages/Admin/Panel";
 import { StoreItems } from "./Components/Store/StoreItems";
 import { SideCart } from "./Components/Cart/SideCart";
 
-import { useUserContext } from "@Setup/Contexts/UserContext";
-import { useShopContext } from "@Setup/Contexts/ShopContext";
+import { useUserContext } from "@Common/Contexts/UserContext";
+import { useShopContext } from "@Common/Contexts/ShopContext";
 
 export function Store() {
   const { items, status } = useShopContext();
