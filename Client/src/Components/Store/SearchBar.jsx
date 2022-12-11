@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useShopContext } from "../../Contexts/ShopContext";
+import { useShopContext } from "@Common/Contexts/ShopContext";
 
 export function SearchBar() {
   const { items } = useShopContext();

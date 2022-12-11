@@ -1,5 +1,5 @@
 import { useContext, createContext, useState } from "react";
-import { ShopContextEffect } from "../Hooks/UseEffect";
+import { ShopContextEffect } from "./Hooks/UseEffect";
 
 // Creating context
 const Context = createContext({});

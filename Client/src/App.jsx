@@ -1,10 +1,10 @@
-import "./CSS/App.css";
+import "@Assets/CSS/App.css";
 import { Routes, Route } from "react-router-dom";
 
-import { Navbar } from "./Components/Layout/Navbar";
-import { Profil } from "./Pages/Profil";
-import { Login } from "./Pages/Login";
-import { Store } from "./Pages/Store";
+import { Navbar } from "@Components/Navbar/Navbar";
+import { Profil } from "@Pages/Profil";
+import { Login } from "@Pages/Login";
+import { Store } from "@Pages/Store";
 
 export default function App() {
   return (

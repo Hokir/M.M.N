@@ -1,4 +1,4 @@
-import { useShopContext } from "../../Contexts/ShopContext";
+import { useShopContext } from "@Common/Contexts/ShopContext";
 
 export function StoreItems({ id, name, price }) {
   const { increaseItemQuantity } = useShopContext();
@@ -10,7 +10,7 @@ export function StoreItems({ id, name, price }) {
       <h3 className="text-2xl my-4">{name}</h3>
 
       <div className="flex w-full justify-between items-center">
-        <span>{price}.00€</span>
+        <span>{price}</span>
 
         <button className="btn" onClick={() => increaseItemQuantity(id)}>
           Ajouter

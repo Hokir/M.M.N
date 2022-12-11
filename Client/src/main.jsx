@@ -2,8 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import { BrowserRouter } from "react-router-dom";
-import { UserContext } from "./Contexts/UserContext";
-import { ShopContext } from "./Contexts/ShopContext";
+
+//Contexts
+import { UserContext } from "@Common/Contexts/UserContext";
+import { ShopContext } from "@Common/Contexts/ShopContext";
 
 import App from "./App";
 

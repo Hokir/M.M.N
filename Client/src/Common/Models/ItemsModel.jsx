@@ -1,4 +1,4 @@
-import { get, post } from "../API/Axios";
+import { get, post } from "@Common/API/Axios";
 
 class Items {
   constructor(name, price, category) {

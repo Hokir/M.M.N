@@ -1,4 +1,4 @@
-import { useShopContext } from "../../Contexts/ShopContext";
+import { useShopContext } from "@Common/Contexts/ShopContext";
 
 export function CartItems({ id, quantity }) {
   const { items, removeFromCart } = useShopContext();

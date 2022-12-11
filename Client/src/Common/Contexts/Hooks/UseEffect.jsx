@@ -1,7 +1,7 @@
-import Items from "../Models/ItemsModel";
+import Items from "@Common/Models/ItemsModel";
+import { post } from "@Common/API/Axios";
 
 import { useEffect, useState } from "react";
-import { post } from "../API/Axios";
 
 export function ShopContextEffect() {
   // Get the items in the database
