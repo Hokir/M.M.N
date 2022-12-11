@@ -46,7 +46,13 @@ exports.login = async (req, res) => {
     return error(res, "Mot de passe incorrect");
   }
 
-  const user = { email: data.email, role: data.role };
+  const user = {
+    email: data.email,
+    role: data.role,
+    address: data.address,
+    name: data.name,
+  };
+
   const token = await sign({
     ...data,
     password: null,

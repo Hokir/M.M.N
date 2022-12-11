@@ -7,6 +7,11 @@ exports.verify_token = async (req, res) => {
 
   const verified = await verification(token);
 
+  if (verified.data) {
+    const user = { email: verified.data.email, role: verified.data.role };
+    return success(res, { user: user, token: token });
+  }
+
   switch (verified.message) {
     case "invalid token":
       return error(res, { token: null, user: null, message: "Invalid token" });
@@ -29,7 +34,6 @@ exports.verify_token = async (req, res) => {
       const new_token = await sign(data);
       const user = { email: data.email, role: data.role };
 
-      console.log("Token refreshed");
       return success(res, { user: user, token: new_token });
     }
 

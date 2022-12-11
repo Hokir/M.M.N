@@ -47,3 +47,19 @@ exports.modifyItem = async (req, res) => {
 
   return success(res, "Article modifié avec succès");
 };
+
+exports.findById = async (req, res) => {
+  const { id } = req.params;
+
+  if (!id) {
+    return error(res, "Invalid id");
+  }
+
+  const [item, _] = await Items.findById(id);
+
+  if (!item) {
+    return error(res, "No article found");
+  }
+
+  return success(res, item);
+};

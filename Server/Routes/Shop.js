@@ -5,6 +5,7 @@ const {
   getItems,
   createItem,
   modifyItem,
+  findById,
 } = require("../Controllers/ItemsController");
 
 // Show articles in the shop
@@ -15,5 +16,8 @@ router.post("/items", createItem);
 
 // Modify an article
 router.put("/items", modifyItem);
+
+// Get by id
+router.get("/items/:id", findById);
 
 module.exports = router;

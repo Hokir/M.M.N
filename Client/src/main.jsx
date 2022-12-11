@@ -1,9 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { BrowserRouter } from "react-router-dom";
-import { UserContext } from "./Contexts/UserContext";
-import { ShopContext } from "./Contexts/ShopContext";
+import { Router } from "./Setup/Routes/Router";
+
+// Contexts
+
+import { UserContext } from "@Setup/Contexts/UserContext";
+import { ShopContext } from "@Setup/Contexts/ShopContext";
 
 import App from "./App";
 
@@ -11,12 +14,12 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <Router>
       <UserContext>
         <ShopContext>
           <App />
         </ShopContext>
       </UserContext>
-    </BrowserRouter>
+    </Router>
   </React.StrictMode>
 );
