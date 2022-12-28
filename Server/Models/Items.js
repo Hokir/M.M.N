@@ -1,10 +1,12 @@
 const db = require("../Database/Database");
 
 class Items {
-  constructor(name, price, category) {
+  constructor(name, price, category, image, id) {
     this.name = name;
     this.price = price;
     this.category = category;
+    this.image = image;
+    this.id = id;
   }
 
   async save() {
@@ -20,7 +22,7 @@ class Items {
   async modify() {
     const date = new Date().toJSON().slice(0, 10);
 
-    const query = `ALTER TABLE items WHERE name = "${this.name}" SET name = "${this.name}", price = "${this.price}", category = "${this.category}", modification_date = "${date}"`;
+    const query = `UPDATE items SET name = "${this.name}", price = "${this.price}", category = "${this.category}", modification_date = "${date}", image = "${this.image}" WHERE id = "${this.id}"`;
 
     const modifiedItem = await db.execute(query);
 

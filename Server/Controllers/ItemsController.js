@@ -3,9 +3,9 @@ const { error, success } = require("../Repository/ResponseRepository");
 const { upperFirst } = require("../Utilities/TextFormatter");
 
 exports.createItem = async (req, res) => {
-  let { name, price, category } = req.body;
+  let { name, price, category, image } = req.body;
 
-  if (!(name && price && category)) {
+  if (!(name && price && category && image)) {
     return error(res, "Veuillez saisir tous les champs");
   }
 
@@ -29,20 +29,20 @@ exports.getItems = async (req, res) => {
 };
 
 exports.modifyItem = async (req, res) => {
-  let { name, price, category } = req.body;
+  let { id, name, price, category, image } = req.body;
 
-  if (!(name && price && category)) {
+  if (!(name && price && category && image)) {
     return error(res, "Veuillez saisir tous les champs");
   }
 
   name = await upperFirst(name);
-  const searchItem = Items.findByName(name);
+  const [verification, _] = await Items.findByName(name);
 
-  if (!searchItem) {
-    return error(res, "Cet article n'existe pas ou n'existe plus");
+  if (!verification) {
+    return error(res, "Cet article n'existe pas");
   }
 
-  let modifiedItem = Items(name, price, category);
+  let modifiedItem = new Items(name, price, category, image, id);
   modifiedItem = modifiedItem.modify();
 
   return success(res, "Article modifié avec succès");

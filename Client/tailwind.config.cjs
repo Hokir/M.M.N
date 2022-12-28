@@ -3,9 +3,9 @@ module.exports = {
   content: ["./src/**/*.jsx"],
   theme: {
     colors: {
-      dark: "#001219",
-      light: "#c6ac8f",
-      primary: "#22333b",
+      dark: "#262d31",
+      light: "#ffffff",
+      primary: "#4f6470",
       secondary: "#5e503f",
     },
     extend: {},

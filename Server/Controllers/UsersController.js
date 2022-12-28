@@ -14,16 +14,16 @@ exports.register = async (req, res) => {
     error(res, "Veuillez saisir tous les champs");
   }
 
-  const verification = await Users.findByEmail(email);
+  const [verification, _] = await Users.findByEmail(email);
 
   if (verification.length > 0) {
     return error(res, "Un utilisateur utilise déjà cet email !");
   }
+  const user = { password: password, email: email, role: role };
+  const request = await Users.save(user);
 
-  let user = new Users({ email: email, password: password, role: role });
-  user = await user.save();
+  console.log(request);
 
-  console.log(user);
   return success(res, "Compte créé avec succès");
 };
 

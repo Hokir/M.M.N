@@ -1,16 +1,17 @@
 import { get, post } from "@Common/API/Axios";
 
 class Items {
-  constructor(name, price, category) {
-    this.name = name;
-    this.price = price;
-    this.category = category;
-  }
-
-  static async createItem() {
-    let newItem = new Items(this.name, this.price, this.category);
-    newItem = await post("/shop/items", newItem);
-    return newItem;
+  static async createItem(name, price, category) {
+    try {
+      const request = await post("/shop/items", {
+        data: name,
+        price,
+        category,
+      });
+      return request;
+    } catch (e) {
+      return e;
+    }
   }
 
   static async getItems() {

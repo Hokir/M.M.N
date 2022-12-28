@@ -8,7 +8,7 @@ export function useUserContext() {
 }
 
 export function UserContext({ children }) {
-  const [user, setUser] = UserContextEffect();
+  const [user, setUser] = UserContextEffect("user", null);
 
   const values = { user, setUser };
 

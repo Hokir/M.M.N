@@ -1,5 +1,7 @@
 import { useContext, createContext, useState } from "react";
 import { ShopContextEffect } from "./Hooks/UseEffect";
+import { Status } from "@Helpers/Status";
+import { useLocalStorage } from "./Hooks/LocalStorage";
 
 // Creating context
 const Context = createContext({});
@@ -9,8 +11,9 @@ export function useShopContext() {
 }
 
 export function ShopContext({ children }) {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useLocalStorage("shopping_cart", []);
   const [items, setItems] = ShopContextEffect();
+  const [status, ChangeStatus] = Status();
 
   const cartQuantity = cartItems.reduce(
     (quantity, item) => item.quantity + quantity,
@@ -68,6 +71,8 @@ export function ShopContext({ children }) {
     cartQuantity,
     items,
     setItems,
+    status,
+    ChangeStatus,
   };
 
   return <Context.Provider value={values}>{children}</Context.Provider>;

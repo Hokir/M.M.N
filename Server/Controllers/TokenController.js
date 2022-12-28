@@ -3,7 +3,7 @@ const { success, error } = require("../Repository/ResponseRepository");
 
 exports.verify_token = async (req, res) => {
   const { token } = req.body;
-  if (token == null) return;
+  if (token === null) return res.status(400);
 
   const verified = await verification(token);
 
@@ -18,7 +18,7 @@ exports.verify_token = async (req, res) => {
       return await refresh_token();
 
     default:
-      return res.status(401);
+      return res.status(400);
   }
 
   async function refresh_token() {
@@ -29,10 +29,9 @@ exports.verify_token = async (req, res) => {
       const new_token = await sign(data);
       const user = { email: data.email, role: data.role };
 
-      console.log("Token refreshed");
       return success(res, { user: user, token: new_token });
     }
 
-    return res.status(401);
+    return res.status(400);
   }
 };
