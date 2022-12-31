@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
 import { Currency } from "@Helpers/Currency";
-import { CartItems } from "@Components/Cart/CartItems";
+import { CartItems } from "./CartItems";
 import { useShopContext } from "@Common/Contexts/ShopContext";
 
 export function SideCart() {

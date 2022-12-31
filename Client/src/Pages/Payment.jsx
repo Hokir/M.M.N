@@ -1,5 +1,5 @@
 import { useShopContext } from "@Common/Contexts/ShopContext";
-import { ClickCollect } from "./Components/ClickCollect";
+import { ClickCollect } from "@Components/Payment/ClickCollect";
 import { CartItems } from "@Components/Cart/CartItems";
 import { useState } from "react";
 

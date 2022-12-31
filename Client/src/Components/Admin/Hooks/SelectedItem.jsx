@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { FindById } from "@Helpers/FindById";
+import { FindByID } from "@Helpers/FindByID";
 
 export function SelectedItem(id) {
   const [name, setName] = useState();
@@ -7,7 +7,7 @@ export function SelectedItem(id) {
   const [price, setPrice] = useState();
   const category = useRef();
 
-  const selectedItem = FindById(id);
+  const selectedItem = FindByID(id);
 
   useEffect(() => {
     if (selectedItem) {

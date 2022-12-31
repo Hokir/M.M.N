@@ -12,11 +12,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const userRoute = require("./Routes/Users");
 const shopRoute = require("./Routes/Shop");
-const adminRoute = require("./Routes/Admin");
+const tokenRoute = require("./Routes/Token");
 
-app.use("/users", userRoute);
 app.use("/shop", shopRoute);
-app.use("/admin", adminRoute);
+app.use("/token", tokenRoute);
+app.use("/users", userRoute);
 
 // Run server on configured port
 const port = process.env.PORT;

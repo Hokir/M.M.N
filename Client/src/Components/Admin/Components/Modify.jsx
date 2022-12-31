@@ -1,8 +1,8 @@
 import { SelectedItem } from "../Hooks/SelectedItem";
-import { put } from "@Common/API/Axios";
+import Shop from "@Common/API/Shop";
 import { useState } from "react";
 
-export function ModifyForm({ id }) {
+export function Modify({ id }) {
   const { name, setName, image, setImage, price, setPrice, category } =
     SelectedItem(id);
 
@@ -13,16 +13,13 @@ export function ModifyForm({ id }) {
 
     const data = { id, name, image, price, category: category.current.value };
 
-    await put("/shop/items", { data: { ...data } })
+    await Shop.patchItem("/shop", { ...data })
       .then((res) => console.log(res))
-      .catch((err) => setMessage(err.response.data.message));
+      .catch((err) => console.log(err));
   }
 
   return (
-    <form
-      onSubmit={(e) => onSubmit(e)}
-      className="flex flex-col gap-6 text-dark"
-    >
+    <form onSubmit={(e) => onSubmit(e)} className="flex flex-col text-dark">
       {message && <span className="text-light m-1">{message}</span>}
 
       <input
@@ -54,7 +51,7 @@ export function ModifyForm({ id }) {
         <option value="Pantalon">Pantalon</option>
       </select>
 
-      <button className="text-light">Modifier ce produit</button>
+      <button>Modifier ce produit</button>
     </form>
   );
 }

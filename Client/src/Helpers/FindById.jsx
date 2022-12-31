@@ -1,6 +1,6 @@
 import { useShopContext } from "@Common/Contexts/ShopContext";
 
-export function FindById(id) {
+export function FindByID(id) {
   const { items } = useShopContext();
 
   const item = items.find((i) => i.id === id);

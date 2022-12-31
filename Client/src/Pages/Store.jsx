@@ -1,6 +1,6 @@
-import { StoreItems } from "./Components/StoreItems";
+import { StoreItems } from "@Components/Store/StoreItems";
 import { AdminPanel } from "@Components/Admin/Panel";
-import { SideCart } from "./Components/SideCart";
+import { SideCart } from "@Components/Cart/SideCart";
 
 import { useUserContext } from "@Common/Contexts/UserContext";
 import { useShopContext } from "@Common/Contexts/ShopContext";
@@ -13,9 +13,13 @@ export function Store() {
 
   return (
     <div className="flex">
-      <div className="flex flex-wrap w-3/4 gap-20 pl-6">
+      <div className="flex w-3/4 justify-center gap-20 flex-wrap">
         {items.map((item) => (
-          <div key={item.id} onClick={() => setId(item.id)}>
+          <div
+            className="border bg-light text-dark rounded-xl p-6"
+            key={item.id}
+            onClick={() => setId(item.id)}
+          >
             <StoreItems {...item} />
           </div>
         ))}

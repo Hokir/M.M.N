@@ -1,11 +1,11 @@
 import { useRef } from "react";
 
-import { Log } from "./Components/Log";
-import { Register } from "./Components/Register";
+import { Login } from "@Components/Sign/Login";
+import { Register } from "@Components/Sign/Register";
 
 import { Status } from "@Helpers/Status";
 
-export function Login() {
+export function Sign() {
   const email = useRef();
   const password = useRef();
 
@@ -13,14 +13,12 @@ export function Login() {
 
   return (
     <div className="flex flex-col items-center gap-4">
-      {!status && <Log email={email} password={password} />}
+      {!status && <Login props={{ email, password }} />}
 
-      {status && <Register email={email} password={password} />}
+      {status && <Register props={{ email, password }} />}
 
       <span>
         {status ? "Déjà un compte ? " : "Vous êtes nouveau ? "}
-
-        {/* Switch button */}
 
         <button className="underline" onClick={() => ChangeStatus()}>
           {status ? "Se connecter" : "S'inscrire"}

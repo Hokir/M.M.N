@@ -16,7 +16,7 @@ exports.createItem = async (req, res) => {
     return error(res, "Un article avec le même nom existe déjà.");
   }
 
-  let item = new Items(name, price, category);
+  let item = new Items({ name, price, category, image });
   item = await item.save();
 
   return success(res, "Article créé avec succès.");
@@ -42,7 +42,7 @@ exports.modifyItem = async (req, res) => {
     return error(res, "Cet article n'existe pas");
   }
 
-  let modifiedItem = new Items(name, price, category, image, id);
+  let modifiedItem = new Items({ name, price, category, image, id });
   modifiedItem = modifiedItem.modify();
 
   return success(res, "Article modifié avec succès");

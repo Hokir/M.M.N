@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ModifyForm } from "./Components/ModifyForm";
-import { CreateForm } from "./Components/CreateForm";
+import { Modify } from "./Components/Modify";
+import { Create } from "./Components/Create";
 import { Buttons } from "./Components/Buttons";
 import { useEffect } from "react";
 
@@ -12,8 +12,8 @@ export function AdminPanel(props) {
   }, [props.id]);
 
   return (
-    <div className="flex h-80 bg-dark text-light">
-      {status === "Add" ? <CreateForm /> : <ModifyForm id={props.id} />}
+    <div className="flex h-80 bg-light text-dark">
+      {status === "Add" ? <Create /> : <Modify id={props.id} />}
 
       <Buttons setStatus={setStatus} />
     </div>

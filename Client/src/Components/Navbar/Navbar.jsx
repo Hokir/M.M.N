@@ -5,7 +5,7 @@ import { Profil as ProfilImg } from "@Assets/Images/Profil.jsx";
 import { Cart as CartImg } from "@Assets/Images/Cart.jsx";
 
 import { useUserContext } from "@Common/Contexts/UserContext";
-import { AdminButton } from "@Components/Navbar/Components/AdminButton";
+import { AdminButton } from "./Components/AdminButton";
 import { UserButton } from "./Components/UserButton";
 
 export function Navbar() {

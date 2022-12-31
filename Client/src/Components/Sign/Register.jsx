@@ -1,28 +1,20 @@
 import { useState } from "react";
-import { post } from "@Common/API/axios";
+import User from "@Common/API/User";
 
-export function Register(props) {
-  const { email, password } = props;
+export function Register({ email, password }) {
   const [message, setMessage] = useState();
 
   async function HandleRegister(e) {
     e.preventDefault;
 
-    post("/users/register", {
-      data: {
-        email: email.current.value,
-        password: password.current.value,
-        role: "client",
-      },
-    })
-      .then((res) => setMessage(res.data))
-      .catch((err) => {
-        if (err.response.data.message?.errors) {
-          return setMessage(err.response.data.message.errors[0].msg);
-        }
+    const data = {
+      email: email.current.value,
+      password: password.current.value,
+      role: "client",
+    };
 
-        setMessage(err.response.data.message);
-      });
+    const request = await User.createAccount("/users/create", { ...data });
+    console.log(request);
   }
 
   return (

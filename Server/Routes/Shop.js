@@ -7,13 +7,15 @@ const {
   modifyItem,
 } = require("../Controllers/ItemsController");
 
+const { VerifyAdmin } = require("../Utilities/Authenticator");
+
 // Show articles in the shop
-router.get("/items", getItems);
+router.get("/", getItems);
 
 // Create a new article
-router.post("/items", createItem);
+router.post("/", VerifyAdmin, createItem);
 
 // Modify an article
-router.put("/items", modifyItem);
+router.patch("/", VerifyAdmin, modifyItem);
 
 module.exports = router;
