@@ -1,19 +1,19 @@
 import { deleteRequest, getRequest, patchRequest, postRequest } from "./Axios";
 
 class Shop {
-  static getItems() {
+  static getProducts() {
     return getRequest("/shop");
   }
 
-  static createItem(path, payload) {
+  static createProduct(path, payload) {
     return postRequest(path, payload);
   }
 
-  static patchItem(path, payload) {
+  static patchProduct(path, payload) {
     return patchRequest(path, payload);
   }
 
-  static deleteItem(path, payload) {
+  static deleteProduct(path, payload) {
     return deleteRequest(path, payload);
   }
 }

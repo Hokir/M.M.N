@@ -1,28 +1,28 @@
 import { Currency } from "@Helpers/Currency";
-import { CartItems } from "./CartItems";
+import { ProductsInCart } from "./ProductsInCart";
 import { useShopContext } from "@Common/Contexts/ShopContext";
 
 export function SideCart() {
-  const { cartItems, items } = useShopContext();
+  const { cartProducts, products } = useShopContext();
 
   return (
     <>
-      <div className="flex justify-between items-center text-light bg-primary p-6 h-16 text-2xl font-bold">
+      <div className="flex bg-primary justify-between items-center p-6 h-16 text-2xl font-bold">
         <span>Total</span>
 
         {Currency(
-          cartItems.reduce((total, cartItem) => {
-            const item = items.find((i) => i.id === cartItem.id);
-            return total + (item?.price || 0) * cartItem.quantity;
+          cartProducts.reduce((total, cartProduct) => {
+            const product = products.find((i) => i.id === cartProduct.id);
+            return total + (product?.price || 0) * cartProduct.quantity;
           }, 0)
         )}
       </div>
 
-      {cartItems.map((item) => (
-        <CartItems key={item.id} {...item} />
+      {cartProducts.map((product) => (
+        <ProductsInCart key={product.id} {...product} />
       ))}
 
-      <h3 className={cartItems.length > 0 ? "hidden" : "text-lg my-5 mx-2"}>
+      <h3 className={cartProducts.length > 0 ? "hidden" : "p-4"}>
         Panier vide.
       </h3>
     </>

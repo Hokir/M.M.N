@@ -6,7 +6,7 @@ class User {
   }
 
   static createAccount(payload) {
-    return postRequest("/users/create", { ...payload });
+    return postRequest("/users/register", { ...payload });
   }
 
   static updateAccount(payload) {

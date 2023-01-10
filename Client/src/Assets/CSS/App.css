@@ -2,27 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --dark: #262d31;
-  --light: #ffffff;
-  --primary: #4f6470;
-  --secondary: #c6ac8f;
-  --terciary: #fca311;
-}
-
 body {
-  color: var(--light);
-  background-color: var(--dark);
+  @apply light;
 }
 
-.btn {
-  border: 1px solid;
-  border-radius: 8px;
-  padding: 6px 16px;
-  background-color: var(--primary);
-  color: var(--light);
+.dark {
+  @apply bg-dark text-light;
 }
 
-.btn:hover {
-  background-color: var(--secondary);
+.light {
+  @apply bg-light text-dark;
+}
+
+.primary {
+  @apply bg-primary text-light;
+}
+
+.button {
+  @apply border py-2 px-6;
+}
+
+.button:hover {
+  @apply bg-primary;
+}
+
+.dark_button {
+  @apply border py-2 px-6;
+}
+
+.dark_button:hover {
+  @apply bg-dark;
 }

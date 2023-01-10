@@ -9,7 +9,7 @@ class Token {
     return localStorage.setItem("token", { token });
   }
 
-  static verifyToken(token) {
+  static verification(token) {
     return postRequest("/token/verification", { token });
   }
 }

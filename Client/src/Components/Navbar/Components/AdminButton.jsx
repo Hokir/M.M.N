@@ -1,18 +1,18 @@
-import { useShopContext } from "@Common/Contexts/ShopContext";
+import { useUserContext } from "@Common/Contexts/UserContext";
 
 export function AdminButton() {
-  const { status, ChangeStatus } = useShopContext();
+  const { adminStatus, changeAdminStatus } = useUserContext();
 
   return (
     <button
-      onClick={() => ChangeStatus()}
+      onClick={() => changeAdminStatus()}
       className={`flex border rounded-xl w-14 h-6 items-center transition shadow-lg ${
-        status && "bg-primary"
+        adminStatus && "bg-primary"
       }`}
     >
       <div
-        className={`bg-light border rounded-xl transition w-7 h-7 shadow-lg ${
-          status && "translate-x-7 bg-primary"
+        className={`dark border rounded-xl transition w-7 h-7 shadow-lg ${
+          adminStatus && "translate-x-7"
         }`}
       />
     </button>

@@ -5,27 +5,35 @@ import { useEffect, useState } from "react";
 import { ClearStorage } from "./ClearStorage";
 
 export function ShopContextEffect() {
-  // Get the items in the database
-  const [items, setItems] = useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    async function getItemsFunction() {
-      const request = await Shop.getItems();
-      setItems(request);
+    async function getProductsFunction() {
+      const request = await Shop.getProducts();
+      return setProducts(request);
     }
-    getItemsFunction();
+    getProductsFunction();
   }, []);
-  return [items, setItems];
+  return [products, setProducts];
 }
 
 export function UserContextEffect() {
   // Check if there is a token, if so, verify and refresh it
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
+  const [user, setUser] = useState(() => {
+    const currentUser = localStorage.getItem("user");
+
+    if (currentUser !== "undefined" && typeof currentUser === "string") {
+      return JSON.parse(localStorage.getItem("user"));
+    }
+
+    return null;
+  });
+
   const token = Token.getToken();
 
   useEffect(() => {
-    async function VerifyToken() {
-      const verification = await Token.verifyToken({ token });
+    async function TokenVerification() {
+      const verification = await Token.verification({ token });
 
       if (verification.status === 200) {
         Token.setToken(verification.data.token);
@@ -36,7 +44,7 @@ export function UserContextEffect() {
       ClearStorage();
       return setUser(null);
     }
-    VerifyToken();
+    TokenVerification();
   }, []);
 
   return [user, setUser];

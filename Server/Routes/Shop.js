@@ -13,9 +13,9 @@ const { VerifyAdmin } = require("../Utilities/Authenticator");
 router.get("/", getItems);
 
 // Create a new article
-router.post("/", VerifyAdmin, createItem);
+router.post("/", createItem);
 
 // Modify an article
-router.patch("/", VerifyAdmin, modifyItem);
+router.patch("/", modifyItem);
 
 module.exports = router;

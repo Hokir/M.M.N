@@ -1,24 +1,21 @@
 import { useShopContext } from "@Common/Contexts/ShopContext";
 import { ClickCollect } from "@Components/Payment/ClickCollect";
-import { CartItems } from "@Components/Cart/CartItems";
+import { ProductsInCart } from "@Components/Cart/ProductsInCart";
 import { useState } from "react";
 
 export function Payment() {
-  const { cartItems } = useShopContext();
+  const { cartProducts } = useShopContext();
   const [status, setStatus] = useState();
 
   return (
     <>
-      {cartItems.length > 0 && (
+      {cartProducts.length > 0 && (
         <div className="flex">
-          {/* Cart items */}
-
           <div className="flex flex-col">
-            {cartItems.length > 0 &&
-              cartItems.map((item) => <CartItems key={item.id} {...item} />)}
+            {cartProducts.map((product) => (
+              <ProductsInCart key={product.id} {...product} />
+            ))}
           </div>
-
-          {/* Payment choice */}
 
           <div className="flex flex-col gap-4">
             <h2 className="text-lg">Méthode de livraison</h2>
@@ -34,7 +31,7 @@ export function Payment() {
         </div>
       )}
 
-      {cartItems.length === 0 && (
+      {cartProducts.length === 0 && (
         <h1 className="text-lg px-5">Votre panier est vide.</h1>
       )}
     </>

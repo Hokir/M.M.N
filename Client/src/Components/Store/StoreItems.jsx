@@ -1,22 +1,13 @@
-import { useShopContext } from "@Common/Contexts/ShopContext";
 import { Currency } from "@Helpers/Currency";
-import Shop from "@Common/API/Shop";
 
-export function StoreItems({ id, name, price, image }) {
-  const { increaseItemQuantity } = useShopContext();
-
+export function StoreItems({ id, name, price, image, props }) {
   return (
-    <div className="flex flex-col gap-4">
-      <img src={image} className="object-contain h-60 w-60" />
+    <div onClick={() => props.setProductId(id)} className="flex flex-col">
+      <img src={image} className="object-contain w-64" />
 
-      <h3 className="text-xl font-bold">{name}</h3>
-
-      <div className="flex w-full justify-between items-center">
-        <span>{Currency(price)}</span>
-
-        <button className="btn" onClick={() => increaseItemQuantity(id)}>
-          Ajouter
-        </button>
+      <div className="flex flex-col p-4 dark">
+        <span className="text-sm">{name}</span>
+        <span className="text-sm">{Currency(price)}</span>
       </div>
     </div>
   );

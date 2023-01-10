@@ -13,10 +13,8 @@ export function UserButton() {
 
   return (
     <div className={`flex items-end flex-col mx-4`}>
-      <span>
-        <span className="text-[#4c956c]">
-          {user?.name ? user.name : user.email}
-        </span>
+      <span className="text-[#4c956c]">
+        {user?.name ? `Bonjour, ${user.name} ${user.surname}` : user.email}
       </span>
 
       <button className="text-xs" onClick={() => Disconnect()}>
